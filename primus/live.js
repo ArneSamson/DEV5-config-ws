@@ -9,6 +9,10 @@ module.exports.go = (server) => {
     primus.on('connection', (spark) => {
         console.log('Connection made');
 
+        spark.on('data', (data) => {
+            console.log(data);
+            primus.write(data);
+        });
 
     });
 };
